@@ -15,6 +15,27 @@ app.put('/nombre/:nomb', function (req, res) {
 	res.send("Nombre almacenado");
 });
 
+// Operación PUT para eleiminar un nombre en el
+// vector.
+app.put('/borrar/:nomb', function (req, res) {
+
+	// Si el nombre se encuentra en el vector,
+	// lo eliminamos, en caso contrario no hacemos
+	// nada.
+	var index = nombres.indexOf(req.params.nomb);
+	
+	if (index > -1){
+
+		nombres.splice(index,1);
+		res.send("\nNombre eliminado");
+
+	}
+	else{
+ 
+		res.send("\nEl elemento no existe");
+	}
+});
+
 // Operación GET para consultar los nombres introducidos
 // hasta el momento.
 app.get('/nombres', function(req,res){

@@ -10,6 +10,15 @@ describe( "PUT nombre", function() {
 	});
 });
 
+describe( "PUT borrar nombre", function() {
+	it('should create', function (done) {
+	request(app)
+		.put('/borrar/Jesus')
+		.expect('Content-Type', 'text/html; charset=utf-8')
+		.expect(200,done);
+	});
+});
+
 describe( "GET nombres", function() {
 	it('should create', function (done) {
 	request(app)
